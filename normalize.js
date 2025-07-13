@@ -10,4 +10,3 @@ export function normalize(str) {
     .replace(/\s+/g, "")
     .replace(/'+/g, "");
 }
-.
