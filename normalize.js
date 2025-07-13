@@ -7,5 +7,7 @@ export function normalize(str) {
     .replace(/(?<=[aeiouAEIOU])\u0301/g, "")
     .normalize("NFC")
     .toLowerCase()
-    .replace(/\s+/g, "");
+    .replace(/\s+/g, "")
+    .replace(/'+/g, "");
 }
+.

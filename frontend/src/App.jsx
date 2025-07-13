@@ -63,7 +63,7 @@ function App() {
 
   const getStationCoordinates = (name) => {
     const station = stations?.find(
-      (s) => s.name.replace(/\s+/g, "").toLowerCase() === name
+      (s) => normalize(s.name) === name
     );
     return station ? station.coordinates : null;
   };
@@ -212,7 +212,6 @@ function App() {
 
     initializeUser();
   }, []);
-
   useEffect(() => {
     if (!loading) {
       if (newUserCreated) {
