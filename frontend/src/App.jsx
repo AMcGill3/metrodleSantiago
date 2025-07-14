@@ -62,9 +62,7 @@ function App() {
   const [graph, setGraph] = useState(null);
 
   const getStationCoordinates = (name) => {
-    const station = stations?.find(
-      (s) => normalize(s.name) === name
-    );
+    const station = stations?.find((s) => normalize(s.name) === name);
     return station ? station.coordinates : null;
   };
 
@@ -243,6 +241,10 @@ function App() {
       nameToId[targetStation.name]
     );
   };
+
+  const normalizedStationMap = Object.fromEntries(
+    Object.entries(stationMap).map(([name, src]) => [normalize(name), src])
+  );
 
   // end game logic
   useEffect(() => {
@@ -495,7 +497,7 @@ function App() {
                       );
                     }
                   })}
-                  {Object.entries(stationMap).map(([name, src]) => {
+                  {Object.entries(normalizedStationMap).map(([name, src]) => {
                     const guessCoordinates = getStationCoordinates(name);
                     const close =
                       guessCoordinates &&
@@ -509,7 +511,7 @@ function App() {
                     if (
                       close &&
                       (playedToday ||
-                        guessedStationNames.includes(normalize(name)))
+                        guessedStationNames.includes(name))
                     ) {
                       return (
                         <img
