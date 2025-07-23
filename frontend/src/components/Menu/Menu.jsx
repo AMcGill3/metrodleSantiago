@@ -18,20 +18,20 @@ export const Menu = ({
   toggleAbout,
   toggleThemePanel,
   toggleStats,
-  theme,
+  currentTheme,
 }) => {
-  const exit = theme === "light" ? exitMenu : exitMenuDark;
+  const exit = currentTheme === "light" ? exitMenu : exitMenuDark;
 
-  const howToPlay = theme === "light" ? howToPlaySymbol : howToPlaySymbolDark;
+  const howToPlay = currentTheme === "light" ? howToPlaySymbol : howToPlaySymbolDark;
 
-  const about = theme === "light" ? aboutSymbol : aboutSymbolDark;
+  const about = currentTheme === "light" ? aboutSymbol : aboutSymbolDark;
 
-  const themeImage = theme === "light" ? themeSymbol : themeSymbolDark;
+  const themeImage = currentTheme === "light" ? themeSymbol : themeSymbolDark;
 
   const statistics =
-    theme === "light" ? statisticsSymbol : statisticsSymbolDark;
+    currentTheme === "light" ? statisticsSymbol : statisticsSymbolDark;
 
-  const email = theme === "light" ? emailSymbol : emailSymbolDark;
+  const email = currentTheme === "light" ? emailSymbol : emailSymbolDark;
 
   const handleEmail = () => {
     window.location.href = "mailto:alecmcgill5@gmail.com";

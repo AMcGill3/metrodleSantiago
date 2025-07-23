@@ -51,13 +51,13 @@ function App() {
   const [showStats, setShowStats] = useState(false);
   const [user, setUser] = useState(null);
   const [newUserCreated, setNewUserCreated] = useState(false);
-  const [theme, setTheme] = useState(
-    localStorage.getItem("theme")
-      ? localStorage.getItem("theme")
-      : window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "dark"
-      : "light"
+  const [selectedTheme, setSelectedTheme] = useState(
+    localStorage.getItem("theme") || "system"
   );
+  const [systemTheme, setSystemTheme] = useState(
+    window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"
+  );
+  const currentTheme = selectedTheme === "system" ? systemTheme : selectedTheme;
   const [nodes, setNodes] = useState(null);
   const [graph, setGraph] = useState(null);
 
@@ -272,9 +272,17 @@ function App() {
   }, [guessedStationNames]);
 
   useEffect(() => {
-    localStorage.setItem("theme", theme);
-    document.body.setAttribute("data-theme", theme);
-  }, [theme]);
+    const media = window.matchMedia("(prefers-color-scheme: dark)");
+    const handleChange = (e) => {
+      setSystemTheme(e.matches ? "dark" : "light");
+    };
+    media.addEventListener("change", handleChange);
+    return () => media.removeEventListener("change", handleChange);
+  }, []);
+
+  useEffect(() => {
+    document.body.setAttribute("data-theme", currentTheme);
+  }, [currentTheme]);
 
   const toggleMenu = () => {
     setShowMenu((prev) => !prev);
@@ -338,7 +346,7 @@ function App() {
           >
             <Stats
               toggleStats={toggleStats}
-              theme={theme}
+              currentTheme={currentTheme}
               user={user}
               today={today}
               targetStation={targetStation}
@@ -357,7 +365,7 @@ function App() {
             <HowToPlay
               toggleHowToPlay={toggleHowToPlay}
               stations={stations}
-              theme={theme}
+              currentTheme={currentTheme}
               graph={graph}
               nameToId={nameToId}
               stopsFromTarget={stopsFromTarget}
@@ -365,7 +373,10 @@ function App() {
             ></HowToPlay>
           </div>
           <div className={`about-container ${showAbout ? "open" : "closed"}`}>
-            <About toggleAbout={toggleAbout} theme={theme}></About>
+            <About
+              toggleAbout={toggleAbout}
+              currentTheme={currentTheme}
+            ></About>
           </div>
           <div
             className={`theme-panel-container ${
@@ -374,8 +385,9 @@ function App() {
           >
             <Theme
               toggleThemePanel={toggleThemePanel}
-              theme={theme}
-              setTheme={setTheme}
+              currentTheme={currentTheme}
+              setSelectedTheme={setSelectedTheme}
+              selectedTheme={selectedTheme}
             ></Theme>
           </div>
           <div className={`menu-container ${showMenu ? "open" : "closed"}`}>
@@ -385,7 +397,7 @@ function App() {
               toggleAbout={toggleAbout}
               toggleThemePanel={toggleThemePanel}
               toggleStats={toggleStats}
-              theme={theme}
+              currentTheme={currentTheme}
             ></Menu>
           </div>
           {showFullMap && (
@@ -414,7 +426,9 @@ function App() {
               >
                 <img
                   className="full-map-button-img"
-                  src={theme === "light" ? fullMapButton : fullMapButtonDark}
+                  src={
+                    currentTheme === "light" ? fullMapButton : fullMapButtonDark
+                  }
                   alt={"mapa completa"}
                 ></img>
               </button>
@@ -427,7 +441,9 @@ function App() {
                   alt={"menu"}
                 >
                   <svg
-                    className={`svgIcon ${theme === "dark" ? "dark" : "light"}`}
+                    className={`svgIcon ${
+                      currentTheme === "dark" ? "dark" : "light"
+                    }`}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 40 40"
                   >
@@ -510,8 +526,7 @@ function App() {
                       ) <= 150;
                     if (
                       close &&
-                      (playedToday ||
-                        guessedStationNames.includes(name))
+                      (playedToday || guessedStationNames.includes(name))
                     ) {
                       return (
                         <img
@@ -564,7 +579,7 @@ function App() {
                 nameToId={nameToId}
                 graph={graph}
                 stopsFromTarget={stopsFromTarget}
-                theme={theme}
+                currentTheme={currentTheme}
               ></GuessContainer>
             </>
             {search.length > 0 && (
