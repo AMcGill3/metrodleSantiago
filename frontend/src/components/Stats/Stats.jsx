@@ -4,7 +4,7 @@ import exitMenuDark from "../../assets/exitMenuDark.svg";
 import shareSymbol from "../../assets/shareSymbol.svg";
 
 export const Stats = ({
-  theme,
+  currentTheme,
   toggleStats,
   user,
   targetStation,
@@ -14,7 +14,7 @@ export const Stats = ({
   checkWin,
   puzzleNumber,
 }) => {
-  const exit = theme === "light" ? exitMenu : exitMenuDark;
+  const exit = currentTheme === "light" ? exitMenu : exitMenuDark;
   const totalWins = () => {
     let sum = 0;
     for (const num in user?.winsInXGuesses) {

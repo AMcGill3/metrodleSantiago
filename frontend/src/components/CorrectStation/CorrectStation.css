@@ -8,7 +8,6 @@
   border: 1px solid var(--text-colour-bg);
   line-height: 1;
   padding: 20px 200px 32px 200px;
-  position: fixed;
   top: 50%;
   left: 50%;
   max-width: 100%;

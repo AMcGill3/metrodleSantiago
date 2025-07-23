@@ -10,7 +10,7 @@ import logo from "../../assets/pageLogo.svg";
 export const HowToPlay = ({
   toggleHowToPlay,
   stations,
-  theme,
+  currentTheme,
   graph,
   nameToId,
   stopsFromTarget,
@@ -20,7 +20,7 @@ export const HowToPlay = ({
     return stations.find((station) => station.name === name);
   };
 
-  const exit = theme === "light" ? exitMenu : exitMenuDark;
+  const exit = currentTheme === "light" ? exitMenu : exitMenuDark;
 
   const santalucía = getStation("Santa Lucía");
   const universidadCatólica = getStation("Universidad Católica");
@@ -158,7 +158,7 @@ export const HowToPlay = ({
         graph={graph}
         nameToId={nameToId}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={true}
       ></Guess>
     </div>
