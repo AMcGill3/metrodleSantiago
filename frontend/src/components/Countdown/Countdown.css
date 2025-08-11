@@ -1,13 +1,6 @@
-.left-countdown {
+.countdown-row {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  height: 40px;
-}
-
-.right-countdown {
-  display: flex;
-  flex-direction: row;
+  flex: 0;
   justify-content: space-between;
   height: 40px;
 }
@@ -15,11 +8,32 @@
 .countdown-container {
   padding-top: 10px;
   color: var(--text-colour-bg);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+}
+
+.countdown {
+  position: relative;
 }
 
 @media (max-width: 600px) {
   .countdown-container {
     max-width: 95%;
-    margin: 0 auto 2px auto;
+    margin: 0 auto 10px auto;
+  }
+}
+
+@media (min-width: 600px) {
+  .countdown-container {
+    width: 550px;
+    margin: 0 auto 20px auto;
+  }
+}
+
+@media (orientation: landscape) {
+  .countdown-row {
+    height: 25px;
   }
 }

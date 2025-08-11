@@ -53,15 +53,15 @@ export const Countdown = ({
   }, [today]);
 
   return (
-    <>
-      <div className="left-countdown">
+    <div className="countdown" data-testid="countdown">
+      <div className="countdown-row">
         <p>Viaje Total</p>
         <p data-testid="total-journey">{totalJourney}</p>
       </div>
-      <div className="right-countdown">
+      <div className="countdown-row">
         <p>El Próximo Metrodle llegará en</p>
         <p data-testid="time">{timeLeft}</p>
       </div>
-    </>
+    </div>
   );
 };

@@ -620,7 +620,7 @@ function App() {
             </div>
           )}
           {playedToday && (
-            <div className="countdown-container" data-testid="countdown">
+            <div className="countdown-container">
               <Countdown
                 today={today}
                 bfsDistance={bfsDistance}
