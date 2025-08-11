@@ -9,14 +9,14 @@
   overflow-x: hidden;
   padding: 20px 20px 32px 20px;
   left: 50%;
-  top: 50%;
+  top: 25%;
   z-index: 100;
   height: max-content;
   width: 315px;
 }
 
 .theme-panel-container.open {
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0);
   opacity: 1;
   pointer-events: auto;
 }
