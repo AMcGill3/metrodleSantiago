@@ -104,12 +104,13 @@ body {
 }
 
 .full-map-button {
-  height: 50px;
-  width: 50px;
-  background-color: transparent;
-  border: 0;
   position: absolute;
   right: 0;
+  height: 50px;
+  width: 40px;
+  background-color: transparent;
+  border: 0;
+  margin-right: 10px;
 }
 
 .full-map-button-img {
