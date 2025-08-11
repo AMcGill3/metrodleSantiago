@@ -3,8 +3,8 @@ import exitMenu from "../../assets/exitMenu.png";
 import exitMenuDark from "../../assets/exitMenuDark.svg";
 import logo from "../../assets/pageLogo.svg";
 
-export const About = ({ toggleAbout, theme }) => {
-  const exit = theme === "light" ? exitMenu : exitMenuDark;
+export const About = ({ toggleAbout, currentTheme }) => {
+  const exit = currentTheme === "light" ? exitMenu : exitMenuDark;
 
   return (
     <div className="about">
