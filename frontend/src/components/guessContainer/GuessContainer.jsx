@@ -2,7 +2,7 @@
 import { Guess } from "./Guess";
 import "./guessContainer.css";
 
-export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFromTarget, theme }) => {
+export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFromTarget, currentTheme }) => {
   return (
     <div className="guess-container" data-testid="guess-container">
       <Guess
@@ -11,7 +11,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
       <Guess
@@ -20,7 +20,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
       <Guess
@@ -29,7 +29,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
       <Guess
@@ -38,7 +38,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
       <Guess
@@ -47,7 +47,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
       <Guess
@@ -56,7 +56,7 @@ export const GuessContainer = ({ guesses, guessedLines, targetStation, stopsFrom
         targetStation={targetStation}
         guessedLines={guessedLines}
         stopsFromTarget={stopsFromTarget}
-        theme={theme}
+        currentTheme={currentTheme}
         howToPlay={false}
       ></Guess>
     </div>

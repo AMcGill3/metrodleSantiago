@@ -9,7 +9,7 @@ export const Guess = ({
   targetStation,
   guessedLines,
   stopsFromTarget,
-  theme,
+  currentTheme,
   howToPlay,
 }) => {
   const directions = [
@@ -26,7 +26,7 @@ export const Guess = ({
   const arrows = Object.fromEntries(
     directions.map((dir) => [
       dir,
-      arrowMap[theme === "dark" ? `${dir}Dark` : dir],
+      arrowMap[currentTheme === "dark" ? `${dir}Dark` : dir],
     ])
   );
 
