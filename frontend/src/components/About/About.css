@@ -37,3 +37,15 @@
     max-width: 75vw;
   }
 }
+
+@media (orientation: landscape) {
+  .about-container {
+    top: 15%;
+  }
+}
+
+@media (orientation: landscape) and (min-height: 500px) {
+  .about-container {
+    top: 25%;
+  }
+}

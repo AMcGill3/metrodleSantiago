@@ -181,6 +181,9 @@
     height: 45vh;
   }
 
+  .share {
+    height: 24px;
+  }
 }
 
 @media (max-height: 400px) and (orientation: landscape) {
@@ -196,8 +199,10 @@
   .figure-item {
     font-size: 11px;
   }
-  .share-button {
-    padding-top: 5px;
-  }
+}
 
+@media (orientation: landscape) {
+  .stats-container {
+    top: 12.5%;
+  }
 }

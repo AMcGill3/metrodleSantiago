@@ -53,9 +53,21 @@
   height: 54px;
   width: 200px;
   user-select: none;
-  margin: 1px 2px;
+  margin: 1px;
 }
 
 .theme-button.selected {
   background-color: #444444;
+}
+
+@media (orientation: landscape) and (max-height: 600px) {
+  .theme-panel-container {
+    top: 10%;
+  }
+}
+
+@media (orientation: landscape) and (max-height: 400px) {
+  .theme-panel-container {
+    top: 5%;
+  }
 }
