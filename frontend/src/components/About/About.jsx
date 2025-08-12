@@ -2,9 +2,25 @@ import "./About.css";
 import exitMenu from "../../assets/exitMenu.png";
 import exitMenuDark from "../../assets/exitMenuDark.svg";
 import logo from "../../assets/pageLogo.svg";
+import { useEffect } from "react";
 
-export const About = ({ toggleAbout, currentTheme }) => {
+export const About = ({ toggleAbout, showAbout, currentTheme }) => {
   const exit = currentTheme === "light" ? exitMenu : exitMenuDark;
+
+      useEffect(() => {
+        const handleEsc = async (e) => {
+          if (showAbout && e.key === "Escape") {
+            toggleAbout();
+          }
+        };
+    
+        window.addEventListener("keydown", handleEsc);
+    
+        return () => {
+          window.removeEventListener("keydown", handleEsc);
+        };
+      }, [showAbout, toggleAbout]);
+      
 
   return (
     <div className="about">

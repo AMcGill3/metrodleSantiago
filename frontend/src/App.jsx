@@ -347,6 +347,7 @@ function App() {
             <Stats
               toggleStats={toggleStats}
               currentTheme={currentTheme}
+              showStats={showStats}
               user={user}
               today={today}
               targetStation={targetStation}
@@ -364,6 +365,7 @@ function App() {
           >
             <HowToPlay
               toggleHowToPlay={toggleHowToPlay}
+              showHowtoPlay={showHowToPlay}
               stations={stations}
               currentTheme={currentTheme}
               graph={graph}
@@ -375,6 +377,7 @@ function App() {
           <div className={`about-container ${showAbout ? "open" : "closed"}`}>
             <About
               toggleAbout={toggleAbout}
+              showAbout={showAbout}
               currentTheme={currentTheme}
             ></About>
           </div>
@@ -385,6 +388,7 @@ function App() {
           >
             <Theme
               toggleThemePanel={toggleThemePanel}
+              showThemePanel={showThemePanel}
               currentTheme={currentTheme}
               setSelectedTheme={setSelectedTheme}
               selectedTheme={selectedTheme}

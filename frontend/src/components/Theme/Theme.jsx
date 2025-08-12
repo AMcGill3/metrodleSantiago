@@ -1,9 +1,11 @@
 import "./Theme.css";
 import exitButton from "../../assets/exitMenu.png";
 import exitButtonDark from "../../assets/exitMenuDark.svg";
+import { useEffect } from "react";
 
 export const Theme = ({
   toggleThemePanel,
+  showThemePanel,
   currentTheme,
   setSelectedTheme,
   selectedTheme,
@@ -14,6 +16,20 @@ export const Theme = ({
     setSelectedTheme(mode);
     localStorage.setItem("theme", mode);
   };
+
+  useEffect(() => {
+    const handleEsc = async (e) => {
+      if (showThemePanel && e.key === "Escape") {
+        toggleThemePanel();
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [showThemePanel, toggleThemePanel]);
 
   return (
     <>

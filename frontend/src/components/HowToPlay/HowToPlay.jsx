@@ -6,9 +6,11 @@ import lineMap from "../../utils/loadLinesPngs";
 import stationMap from "../../utils/loadStationSvgs";
 import { Guess } from "../guessContainer/Guess";
 import logo from "../../assets/pageLogo.svg";
+import { useEffect } from "react";
 
 export const HowToPlay = ({
   toggleHowToPlay,
+  showHowtoPlay,
   stations,
   currentTheme,
   graph,
@@ -24,6 +26,21 @@ export const HowToPlay = ({
 
   const santalucía = getStation("Santa Lucía");
   const universidadCatólica = getStation("Universidad Católica");
+
+  useEffect(() => {
+    const handleEsc = async (e) => {
+      if (showHowtoPlay && e.key === "Escape") {
+        toggleHowToPlay();
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [showHowtoPlay, toggleHowToPlay]);
+  
   return (
     <div className="how-to-play">
       <div className="header">

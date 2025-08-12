@@ -2,10 +2,12 @@ import "./Stats.css";
 import exitMenu from "../../assets/exitMenu.png";
 import exitMenuDark from "../../assets/exitMenuDark.svg";
 import shareSymbol from "../../assets/shareSymbol.svg";
+import { useEffect } from "react";
 
 export const Stats = ({
   currentTheme,
   toggleStats,
+  showStats,
   user,
   targetStation,
   lastPlayed,
@@ -68,6 +70,20 @@ export const Stats = ({
 
     return result;
   };
+
+    useEffect(() => {
+      const handleEsc = async (e) => {
+        if (showStats && e.key === "Escape") {
+          toggleStats();
+        }
+      };
+  
+      window.addEventListener("keydown", handleEsc);
+  
+      return () => {
+        window.removeEventListener("keydown", handleEsc);
+      };
+    }, [showStats, toggleStats]);
 
   const maxGuesses = findMostGuesses();
 
