@@ -422,28 +422,12 @@ function App() {
             correctStationPopUp ||
             showStats) && <div className="backdrop"></div>}
           <div className="main-area-container">
-            {playedToday && (
-              <button
-                className="full-map-button"
-                data-testid="full-map-button"
-                onClick={toggleFullMap}
-                alt={"mapa completa"}
-              >
-                <img
-                  className="full-map-button-img"
-                  src={
-                    currentTheme === "light" ? fullMapButton : fullMapButtonDark
-                  }
-                  alt={"mapa completa"}
-                ></img>
-              </button>
-            )}
             <div className="game-area">
               {!showMenu && (
                 <button
-                  className="hamburger-button"
-                  onClick={toggleMenu}
-                  alt={"menu"}
+                className="hamburger-button"
+                onClick={toggleMenu}
+                alt={"menu"}
                 >
                   <svg
                     className={`svgIcon ${
@@ -451,7 +435,7 @@ function App() {
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 40 40"
-                  >
+                    >
                     <g id="a"></g>
                     <g id="b">
                       <g id="c">
@@ -461,6 +445,24 @@ function App() {
                       </g>
                     </g>
                   </svg>
+                </button>
+              )}
+              {playedToday && (
+                <button
+                  className="full-map-button"
+                  data-testid="full-map-button"
+                  onClick={toggleFullMap}
+                  alt={"mapa completa"}
+                >
+                  <img
+                    className="full-map-button-img"
+                    src={
+                      currentTheme === "light"
+                        ? fullMapButton
+                        : fullMapButtonDark
+                    }
+                    alt={"mapa completa"}
+                  ></img>
                 </button>
               )}
               {linesLoaded && (
