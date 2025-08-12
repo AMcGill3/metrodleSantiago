@@ -1,7 +1,7 @@
 import "./HowToPlay.css";
 import exitMenu from "../../assets/exitMenu.png";
 import exitMenuDark from "../../assets/exitMenuDark.svg";
-import map from "../../assets/metroMapBackground.png";
+import map from "../../assets/MetroMapBackground.png";
 import lineMap from "../../utils/loadLinesPngs";
 import stationMap from "../../utils/loadStationSvgs";
 import { Guess } from "../guessContainer/Guess";

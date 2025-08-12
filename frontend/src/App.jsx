@@ -8,7 +8,7 @@ import { Theme } from "./components/Theme/Theme";
 import { Stats } from "./components/Stats/Stats";
 import { StationContainer } from "./components/StationContainer/StationContainer";
 import { CorrectStation } from "./components/CorrectStation/CorrectStation.jsx";
-import map from "../src/assets/metroMapBackground.png";
+import map from "../src/assets/MetroMapBackground.png";
 import lineMap from "./utils/loadLinesPngs.js";
 import stationMap from "./utils/loadStationSvgs";
 import nationalRailStations from "../src/assets/NationalRailStations.svg";
