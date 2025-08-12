@@ -1,4 +1,4 @@
-import fullMap from "../../assets/fullMapImage.svg";
+import fullMap from "../../assets/FullMapImage.png";
 import exitMapSymbol from "../../assets/exitMenu.png";
 import "./fullMap.css";
 import { useEffect } from "react";

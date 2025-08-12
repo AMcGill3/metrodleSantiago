@@ -1,7 +1,7 @@
 import "./HowToPlay.css";
 import exitMenu from "../../assets/exitMenu.png";
 import exitMenuDark from "../../assets/exitMenuDark.svg";
-import map from "../../assets/metroMapBackground.svg";
+import map from "../../assets/metroMapBackground.png";
 import lineMap from "../../utils/loadLinesPngs";
 import stationMap from "../../utils/loadStationSvgs";
 import { Guess } from "../guessContainer/Guess";
@@ -40,7 +40,7 @@ export const HowToPlay = ({
       window.removeEventListener("keydown", handleEsc);
     };
   }, [showHowtoPlay, toggleHowToPlay]);
-  
+
   return (
     <div className="how-to-play">
       <div className="header">
