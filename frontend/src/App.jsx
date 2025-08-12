@@ -408,6 +408,7 @@ function App() {
             <div className="full-map-container">
               <FullMap
                 toggleFullMap={toggleFullMap}
+                showFullMap={showFullMap}
                 guesses={guesses}
                 targetStation={targetStation}
                 checkWin={checkWin}

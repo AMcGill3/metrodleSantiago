@@ -1,13 +1,30 @@
 import fullMap from "../../assets/fullMapImage.svg";
 import exitMapSymbol from "../../assets/exitMenu.png";
 import "./fullMap.css";
+import { useEffect } from "react";
 
 export const FullMap = ({
   toggleFullMap,
+  showFullMap,
   guesses,
   targetStation,
   checkWin,
 }) => {
+
+  useEffect(() => {
+    const handleEsc = async (e) => {
+      if (showFullMap && e.key === "Escape") {
+        toggleFullMap();
+      }
+    };
+
+    window.addEventListener("keydown", handleEsc);
+
+    return () => {
+      window.removeEventListener("keydown", handleEsc);
+    };
+  }, [showFullMap, toggleFullMap]);
+
   return (
     <>
       <button
