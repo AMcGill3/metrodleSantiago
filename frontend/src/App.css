@@ -43,6 +43,19 @@ body {
   z-index: 10;
 }
 
+.stations-labels {
+  animation: fadeIn 0.7s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 @keyframes pulse {
   0% {
     transform: scale(0.15);
@@ -119,9 +132,34 @@ body {
   transform: translateX(-3px);
 }
 
+.flags {
+  position: fixed;
+  height: 200px;
+  top: -5px;
+}
+
+.flags.left {
+  left: 0;
+}
+
+.flags.right {
+  right: -10px;
+  transform: scaleX(-1);
+}
+
 @media (max-width: 600px) {
   .loading-screen img {
     width: 95vw;
+  }
+
+  .flags {
+    width: 30%;
+    max-width: 50%;
+  }
+
+  .flags.left,
+  .flags.right {
+    top: -20px;
   }
 }
 

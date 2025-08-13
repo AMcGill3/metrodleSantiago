@@ -26,6 +26,7 @@ import loadingSymbolMorning from "../src/assets/loadingSymbols/loadingSymbolMorn
 import loadingSymbolAfternoon from "../src/assets/loadingSymbols/loadingSymbolAfternoon.png";
 import loadingSymbolEvening from "../src/assets/loadingSymbols/loadingSymbolEvening.png";
 import { DateTime } from "luxon";
+import chileFlags from "../src/assets/chileFlags.png";
 
 function App() {
   const [today] = useState(() =>
@@ -323,6 +324,10 @@ function App() {
   const t = DateTime.now().setZone("America/Santiago");
   const hour = t.hour;
 
+  const isFiestasPatrias = () => {
+    return today.month === 9 && today.day >= 17 && today.day <= 20;
+  };
+
   return (
     <>
       {loading && (
@@ -423,11 +428,17 @@ function App() {
             showStats) && <div className="backdrop"></div>}
           <div className="main-area-container">
             <div className="game-area">
+              {isFiestasPatrias() && (
+                <>
+                  <img src={chileFlags} className="flags left"></img>
+                  <img src={chileFlags} className="flags right"></img>
+                </>
+              )}
               {!showMenu && (
                 <button
-                className="hamburger-button"
-                onClick={toggleMenu}
-                alt={"menu"}
+                  className="hamburger-button"
+                  onClick={toggleMenu}
+                  alt={"menu"}
                 >
                   <svg
                     className={`svgIcon ${
@@ -435,7 +446,7 @@ function App() {
                     }`}
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 40 40"
-                    >
+                  >
                     <g id="a"></g>
                     <g id="b">
                       <g id="c">
@@ -577,18 +588,15 @@ function App() {
             >
               <CorrectStation targetStation={targetStation}></CorrectStation>
             </div>
-
-            <>
-              <GuessContainer
-                guesses={guesses}
-                targetStation={targetStation}
-                guessedLines={guessedLines}
-                nameToId={nameToId}
-                graph={graph}
-                stopsFromTarget={stopsFromTarget}
-                currentTheme={currentTheme}
-              ></GuessContainer>
-            </>
+            <GuessContainer
+              guesses={guesses}
+              targetStation={targetStation}
+              guessedLines={guessedLines}
+              nameToId={nameToId}
+              graph={graph}
+              stopsFromTarget={stopsFromTarget}
+              currentTheme={currentTheme}
+            ></GuessContainer>
             {search.length > 0 && (
               <div className="stations-container">
                 <StationContainer
